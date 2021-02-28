@@ -197,7 +197,7 @@ class StudentController extends Controller
             "name" => [ "required", "min:2", "max:60" ],
             "email" => [ "required", "email", "unique:users,email,$id,id" ],
             "password" => $id == 0 ? [ "required", "same:cpassword" ] : [ "same:cpassword"],
-            "phone" => [ "required", "unique:students,phone" ],
+            "phone" => [ "required", "unique:students,phone,$id,id" ],
             "level" => [ "required" ],
             "faculty" => $this->isAdmin() ? [ "required" ] : [],
             "department" => [ "required" ],

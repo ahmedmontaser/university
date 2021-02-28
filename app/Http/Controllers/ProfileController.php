@@ -13,7 +13,7 @@ class ProfileController extends Controller
     public function index()
     {
         if ( $this->isStudent() ) {
-        	$student = Student::where("id", "=", auth()->user()->id )->first();
+        	$student = Student::where("user_id", "=", auth()->user()->id )->first();
 
         	return view("profile.index", compact("student"));
 		} else {
@@ -26,7 +26,7 @@ class ProfileController extends Controller
 		if ( $this->isStudent() ) {
 			$student = Student::select("students.*", "users.name", "users.email")
 				->join("users", "students.user_id", "=", "users.id")
-				->where("students.id", "=", auth()->user()->id )
+				->where("students.user_id", "=", auth()->user()->id )
 				->firstOrFail();
 			$departments = DB::table("departments")->get();
 

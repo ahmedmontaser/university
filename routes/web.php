@@ -29,10 +29,6 @@ Route::get('/', function () {
 	}
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::resource("students", "StudentController")->middleware(["auth"]);
 Route::resource("faculties", "FacultyController")->middleware([ "auth" ]);
 Route::resource("departments", "DepartmentController")->middleware(["auth"]);

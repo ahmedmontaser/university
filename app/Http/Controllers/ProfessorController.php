@@ -40,7 +40,7 @@ class ProfessorController extends Controller
 	{
 		if ( $this->isAdmin() ) {
 			$rules = $this->getRules();
-			// $request->validate($rules);
+			$request->validate($rules);
 
 			$user = User::create([
 				"name" => $request->name,

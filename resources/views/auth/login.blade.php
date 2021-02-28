@@ -69,11 +69,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group mt-2 mb-0 row">
-                                <div class="col-12 mt-3">
-                                    <a href="pages-recoverpw-2.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
-                                </div>
-                            </div>
                         </form>
 
                         <div class="mt-5 pt-4 text-center">
