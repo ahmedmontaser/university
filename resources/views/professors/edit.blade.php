@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route("students.update", $student->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route("professors.update", $professor->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
 
@@ -15,7 +15,7 @@
                             <div class="col-sm-10">
                                 <input class="form-control @error("name") is-invalid @enderror"
                                        type="text" id="name" name="name"
-                                       value="{{ old("name", $student->name) }}">
+                                       value="{{ old("name", $professor->name) }}">
                                 @error("name")
                                 <span class="error">
                                         {{ $message }}
@@ -51,7 +51,7 @@
                             <label for="email" class="col-sm-2 col-form-label">Email: </label>
                             <div class="col-sm-10">
                                 <input class="form-control @error("email") is-invalid @enderror"
-                                       type="text" id="email" name="email" value="{{ old("email", $student->email) }}">
+                                       type="text" id="email" name="email" value="{{ old("email", $professor->email) }}">
                                 @error("email")
                                 <span class="error">
                                         {{ $message }}
@@ -65,7 +65,7 @@
                             <label for="phone" class="col-sm-2 col-form-label">Phone: </label>
                             <div class="col-sm-10">
                                 <input class="form-control @error("phone") is-invalid @enderror"
-                                       type="text" id="phone" name="phone" value="{{ old("phone", $student->phone) }}">
+                                       type="text" id="phone" name="phone" value="{{ old("phone", $professor->phone) }}">
                                 @error("phone")
                                 <span class="error">
                                         {{ $message }}
@@ -81,7 +81,7 @@
                                 <select class="form-control" id="faculty" name="faculty">
                                     @foreach( $faculties as $faculty )
                                         <option value="{{ $faculty->id }}"
-                                                @if( $faculty->id == old("faculty" , $student->faculty_id) )
+                                                @if( $faculty->id == old("faculty" , $professor->faculty_id) )
                                                 selected
                                             @endif>
                                             {{ $faculty->faculty }}

@@ -58,7 +58,7 @@ class FacultyController extends Controller
         if( $this->isAdmin() ) {
 			$faculty = Faculty::where("faculties.id", "=", $faculty->id)->firstOrFail();
 
-			return view("faculties.show", compact("faculty"));
+			return view("faculties.edit", compact("faculty"));
 		} else {
 			return redirect("/");
 		}

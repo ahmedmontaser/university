@@ -40,7 +40,7 @@ class ProfileController extends Controller
     {
 		$rules = [
 			"name" => [ "required", "min:2", "max:60" ],
-			"email" => [ "required", "email", "unique:users,email,$id,id" ],
+			"email" => [ "required", "email", "unique:users,email,".auth()->user()->id.",id" ],
 			"password" => [ "same:cpassword"],
 			"level" => [ "required" ],
 			"department" => [ "required" ],
@@ -49,7 +49,7 @@ class ProfileController extends Controller
 
 		$request->validate($rules);
 
-		$student = Student::findOrFail( id );
+		$student = Student::findOrFail( $id );
 		if ( $file_to_store == "student.jpg" ) {
 			$file_to_store = $student->image;
 		}
