@@ -186,7 +186,7 @@ class StudentController extends Controller
 		) {
 			return redirect("/");
 		} else {
-			$student = Student::findOrFail($student->id);
+			$student = User::findOrFail($student->user_id);
 			$student->delete();
 			return redirect("students");
 		}

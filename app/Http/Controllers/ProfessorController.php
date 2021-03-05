@@ -126,7 +126,7 @@ class ProfessorController extends Controller
 	public function destroy(Professor $professor)
 	{
 		if ( $this->isAdmin() ) {
-			$professor = Professor::findOrFail( $professor );
+			$professor = User::findOrFail( $professor->user_id );
 			$professor->destroy();
 			return redirect("professors");
 		} else {
